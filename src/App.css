@@ -36,3 +36,174 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  text-align: center;
+}
+
+.NavButton {
+  background-color: #3b4cca;
+  text-align: center;
+  padding: 20px;
+}
+
+.NavButton a {
+	padding: 12px;
+  margin: 15px 30px;
+	color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.NavButton a:hover {
+	background-color: #b3a125;
+	color:midnightblue;
+}
+
+.picture_main {
+  align-self: center;
+  display: block;
+  justify-content:center; 
+  margin: 0 auto;
+}
+
+
+
+.searchbarfont {
+  width: 40%;
+  padding: 12px 20px;
+  padding-left: 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.dropdown {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 8px;
+  border: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.suggestion{
+  color: white;
+}
+
+.GalleryViewMain {
+  background-color: maroon;
+  padding: 15px 20px;
+  padding-right: 5px;
+}
+
+
+.GalleryTitle{
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.galleryPkmn {
+
+}
+
+.galleryPkmnText {
+
+}
+
+.navtop h1{
+
+}
+
+.PkmnTypeButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 15px 32px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+.PkmnTypeButton:hover{
+	background-color: #a94c4c;
+	color:white;
+}
+
+.PkmnTypeButton:active{
+	background-color: #a94c4c;
+	color:white;
+}
+
+.galleryPkmn a{
+  background-color: aliceblue;
+}
+
+.galleryPkmnImg {
+  background-color: #C4A46B;
+}
+
+.pkmnContainer{
+  background-color: #d3d3d3;
+  display: flex;
+  padding: 10px;
+  flex-wrap: nowrap;
+  margin: 20px;
+}
+
+.pokemon_picture {
+  align-self: center;
+  margin: 0 auto;
+}
+
+.pkmnContains {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.appdiv h1 {
+  margin: 0 auto;
+}
+
+
+.search_text{
+  font-family: "Flexo-Regular",arial,sans-serif;
+  font: inherit;
+}
+
+.prev_next_buttons {
+  position: absolute;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, .8);
+  cursor: pointer;
+  border-radius: .25rem;
+  padding: 0 .5rem;
+}
+
+.prev_next_buttons.prev {
+  left: 1rem;
+  z-index: 3;
+}
+
+.prev_next_buttons.next{
+  right: 1rem;
+  z-index: 3;
+}
