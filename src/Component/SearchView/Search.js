@@ -2,9 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import '../../App.css'
 import PropTypes from 'prop-types';
-import {
-    Link
-  } from "react-router-dom"
+import { Link } from "react-router-dom"
+import { v4 } from 'uuid'
 
 
   class Search extends React.Component {
@@ -46,18 +45,21 @@ import {
                             data[current].spriteUrl = response.data.sprites.front_default
                             this.setState({data: data})
                         }
-                    )
+                    ).catch(err => console.log(err));
                 }
-            });
+            }).catch(err => console.log(err));
         }    
     }
 
 
     displayList = () => {
         if (this.state.data) {
+            let pokemon_arr = JSON.parse(JSON.stringify(this.state.data))
             if (this.state.sort === "Index") {
                 let results_found = []
-                let pokemon_arr = JSON.parse(JSON.stringify(this.state.data))
+                if (this.state.search.length === 0) {
+                    return (<div className='suggestion' key={v4()}>Enter an input in the search bar to see results!</div>)
+                }
 
                 // Sort based on users selection of ascending or descending
                 if (this.state.orderedBy === "ascending") {
@@ -71,31 +73,7 @@ import {
                         return first.index < second.index ? 1 : -1
                     });
                 }
-
-
-                for (let idx = 0; idx < pokemon_arr.length; idx++) {
-                    // Check if the character(s) typed in match with the beginning of the pokemon's name
-                    if (pokemon_arr[idx].name.startsWith(this.state.search)) {
-                        results_found.push(
-                            <div className='overall'>
-                                <div className='pkmnContainer'>
-                                    <Link className = "galleryPkmn" to = {"/detail/" + pokemon_arr[idx].index}>
-                                    <img src = {pokemon_arr[idx].spriteUrl} className = "galleryPkmnImg" alt = "current_pkmn_picture" />
-
-                                        <div className = "galleryPkmnText">{pokemon_arr[idx].name}</div>
-                                        <div className = "galleryPkmnText">{pokemon_arr[idx].index}</div>
-                                    </Link>
-                                    <div></div>
-                                </div>
-                            </div>
-                        )
-                    }
-                }
-                return (
-                    <div className = 'search_results'> {results_found} </div>
-                )
             } else if (this.state.sort === "Name") {
-                let pokemon_arr = JSON.parse(JSON.stringify(this.state.data))
                 if (this.state.search.length === 0) {
                     return (<div className='suggestion'>Enter an input in the search bar to see results!</div>)
                 }
@@ -112,28 +90,37 @@ import {
                         return first.name < second.name ? 1 : -1
                     });
                 }
-
-                var results_found = []
-                for (let idx = 0; idx < pokemon_arr.length; idx++) {
-                    if (pokemon_arr[idx].name.startsWith(this.state.search)) {
-                        results_found.push(
-                            <div className='overall'>
-                            <div className='pkmnContainer'>
-                            <Link className = "galleryPkmn" to = {"/detail/" + pokemon_arr[idx].index}>
-                                <div className = "galleryPkmnText">{pokemon_arr[idx].name}</div>
-                                <div className = "galleryPkmnText">{pokemon_arr[idx].index}</div>
-                                <img src = {pokemon_arr[idx].spriteUrl} className = "galleryPkmnImg" alt = "current_pkmn_picture" />
-                            </Link>
-                            <div></div>
+            } 
+            var results_found = []
+            for (let idx = 0; idx < pokemon_arr.length; idx++) {
+                // Check if the character(s) typed in match with the beginning of the pokemon's name
+                let lower = this.state.search.toLowerCase()
+                if (pokemon_arr[idx].name.startsWith(this.state.search) || pokemon_arr[idx].name.startsWith(lower)) {
+                    results_found.push(
+                        <div className='overall'>
+                             <div className='pkmnContainerSearch'>
+                                <Link className = "galleryPkmn" to = {"/detail/" + pokemon_arr[idx].index}>
+                                    <div className = "galleryPkmnText">#{pokemon_arr[idx].index}</div>
+                                    <img src = {pokemon_arr[idx].spriteUrl} className = "galleryPkmnImg" alt = "current_pkmn_picture" />
+                                    <div className = "searchPkmnName">{pokemon_arr[idx].name}</div>
+                                    <div className = "galleryPkmnText">{pokemon_arr[idx].pkmn_type}</div>
+                                </Link>
+                                <div></div>
                             </div>
                         </div>
-                        )
-                    }
+                    )
                 }
+            }
+
+            if (this.state.search.length !== 0 && results_found.length === 0) {
                 return (
-                    <div className = 'search_results'> {results_found} </div>
+                    <div className = 'suggestion' key={v4()}> No results found! </div>
                 )
-            } 
+            } else {
+                return (
+                    <div className = 'search_results' key={v4()}> {results_found} </div>
+                )
+            }
         }
     }
 
@@ -158,7 +145,7 @@ import {
                         <option value="Index">Pokemon Index</option>
                     </select>
                 </div>
-                {this.displayList()}   
+                {this.displayList()}
             </div>
         );
     }

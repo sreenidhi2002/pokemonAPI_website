@@ -43,9 +43,9 @@ class Gallery extends React.Component {
                             data[i].spriteUrl = response.data.sprites.front_default
                             this.setState({ data: data})
                         }
-                    )
+                    ).catch(err => console.log(err))
                 }
-                });
+                }).catch(err => console.log(err));
         }
     }
 
@@ -82,10 +82,9 @@ class Gallery extends React.Component {
                     <div className='overall'>
                         <div className='pkmnContainer'>
                             <Link className = "galleryPkmn" to = {"/detail/" + String(data[i].index)}>
-                                <div className = "galleryPkmnText">{data[i].index}</div>
+                                <div className = "galleryPkmnText">#{data[i].index}</div>
                                 <img src = {data[i].spriteUrl} className = "galleryPkmnImg" alt = "pic" />
-                                <div className = "galleryPkmnText">{data[i].name}</div>
-                                <div className = "galleryPkmnText">{data[i].type}</div>
+                                <div className = "galleryPkmnName">{data[i].name}</div>
                             </Link>
                             <div></div>
                         </div>

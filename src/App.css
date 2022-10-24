@@ -49,10 +49,11 @@ h1 {
 
 .NavButton a {
 	padding: 12px;
-  margin: 15px 30px;
+  margin: 15px 50px;
 	color: white;
   text-decoration: none;
   border-radius: 5px;
+  font-size: large;
 }
 
 .NavButton a:hover {
@@ -65,6 +66,8 @@ h1 {
   display: block;
   justify-content:center; 
   margin: 0 auto;
+  padding: 10px;
+  padding-top: 20px;
 }
 
 
@@ -78,17 +81,23 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  font-size: medium;
 }
 
 .dropdown {
-  width: 20%;
-  background-color: #4CAF50;
+  width: auto;
+  background-color: #f7b733;
   color: white;
   padding: 14px 20px;
   margin: 8px 8px;
   border: 1px;
   border-radius: 4px;
   cursor: pointer;
+  font-size: medium;
+}
+
+.body{
+  background-color: #4abdac;
 }
 
 .suggestion{
@@ -96,9 +105,10 @@ h1 {
 }
 
 .GalleryViewMain {
-  background-color: maroon;
+  background-color: #4abdac;
   padding: 15px 20px;
   padding-right: 5px;
+  height:100vh
 }
 
 
@@ -109,19 +119,24 @@ h1 {
 }
 
 .galleryPkmn {
-
+  align-content: center;
 }
 
-.galleryPkmnText {
-
+.navtopHeading{
+  font-size: 30px;
+  color: black;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
-.navtop h1{
-
+.navtop{
+  background-color: #F0DBA5;
 }
 
 .PkmnTypeButton {
-  background-color: #4CAF50;
+  background-color: #fc4a1a;
   border: none;
   color: white;
   border-radius: 5px;
@@ -137,9 +152,10 @@ h1 {
 .PkmnTypeButton:hover{
 	background-color: #a94c4c;
 	color:white;
+  cursor: pointer;
 }
 
-.PkmnTypeButton:active{
+.PkmnTypeButton:focus{
 	background-color: #a94c4c;
 	color:white;
 }
@@ -149,15 +165,108 @@ h1 {
 }
 
 .galleryPkmnImg {
-  background-color: #C4A46B;
+  background-color:  #efbe93;
+  border-radius: 10px;
+  align-self: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
+a:link { text-decoration: none; }
+
+.galleryPkmnName {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: large;
+}
+
+.searchPkmnName {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  font-size: large;
+}
+
+
+
+.galleryPkmnText {
+  color: #F0C49D;
+  text-decoration: none;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+
 .pkmnContainer{
-  background-color: #d3d3d3;
+  background-color: #c9806A;
   display: flex;
   padding: 10px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin: 20px;
+  border-radius: 7px;
+  max-width: 115px;
+}
+
+.pkmnContainerSearch{
+  background-color: #c9806A;
+  display: flex;
+  padding: 10px;
+  flex-wrap: wrap;
+  margin: 20px;
+  border-radius: 7px;
+  width: 115px;
+  align-content: center;
+  justify-content: center;
+}
+
+.search_results {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.overallSearch {
+  max-width: 115px;
+}
+
+.pkmnContainer:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: scale(1.06);
+  transition: 0.4s;
+}
+
+
+.pkmnContainerSearch:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: scale(1.06);
+  transition: 0.4s;
+}
+
+
+.generalinfo {
+  font-size: 18px;
+  flex: auto;
+  display: flex;
+  width: 100px;
+}
+
+.stats {
+  font-size: medium;
+  display: flex;
+}
+
+
+.pkmncard h4 {
+  font-size: 18px;
 }
 
 .pokemon_picture {
@@ -166,7 +275,7 @@ h1 {
 }
 
 .pkmnContains {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -174,6 +283,10 @@ h1 {
   flex-wrap: wrap;
 }
 
+.appdiv {
+  background-color: #4abdac;
+  height: 100vh;
+}
 
 .appdiv h1 {
   margin: 0 auto;
@@ -185,17 +298,29 @@ h1 {
   font: inherit;
 }
 
+.prev_next_buttons a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none; /* no underline */
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.prev_next_buttons a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
 .prev_next_buttons {
   position: absolute;
   z-index: 2;
   background: none;
   border: none;
   font-size: 2rem;
-  transform: translateY(-50%);
   color: rgba(255, 255, 255, .8);
   cursor: pointer;
   border-radius: .25rem;
-  padding: 0 .5rem;
+  padding: 50px .5rem;
+  text-decoration: none;
 }
 
 .prev_next_buttons.prev {
@@ -206,4 +331,83 @@ h1 {
 .prev_next_buttons.next{
   right: 1rem;
   z-index: 3;
+}
+
+
+
+
+.appdiv{
+  display: flex;
+  justify-content: center;
+}
+
+.detailTitle {
+  padding: 20px;
+  color: white;
+  font-family: monospace;
+  height: 30px;
+  background-color: darkorange;
+  border-radius: 8px;
+  transform: translateY(30%);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.pkmncard{
+  background-color: #d3d3d3 ;
+  transform: translateY(30%);
+  width: 475px;
+  height: 375px;
+  padding: 35px;
+  margin: 10 auto;
+  position: absolute;
+  font-family: monospace;
+  border-radius: 10px;
+  background: linear-gradient(135deg, darkorange 30%, red);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.pkmncard h3 {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.detailImg {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pokemon_picture {
+  height: 150px;
+  width: 150px;
+}
+
+.columnDetail {
+  display: flex;
+}
+
+
+
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1
+}
+
+
+.double-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 2
 }
