@@ -52,7 +52,7 @@ import { v4 } from 'uuid'
     }
 
 
-    displayList = () => {
+    searchResultsFound = () => {
         if (this.state.data) {
             let pokemon_arr = JSON.parse(JSON.stringify(this.state.data))
             if (this.state.sort === "Index") {
@@ -144,7 +144,7 @@ import { v4 } from 'uuid'
                         <option value="Index">Pokemon Index</option>
                     </select>
                 </div>
-                {this.displayList()}
+                {this.searchResultsFound()}
             </div>
         );
     }

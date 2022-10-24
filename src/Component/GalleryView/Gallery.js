@@ -14,11 +14,7 @@ class Gallery extends React.Component {
         }
     }
 
-    handleTypeClicker = (type) => {
-        this.setState({
-            type: type
-        })
-    }
+    setChosenPkmnType = (type) => {this.setState({type: type})}
 
     componentDidMount() {
         if (this.state.data === null) {
@@ -50,7 +46,7 @@ class Gallery extends React.Component {
     }
 
 
-    getTypeData = (type) => {
+    findPkmnOfChosenType = (type) => {
         if (this.state.type === "All") {
             return this.state.data;
         } else if (this.state.type === "bug" || this.state.type === "dark" 
@@ -73,12 +69,12 @@ class Gallery extends React.Component {
         }
     }
 
-    displayView = (type) => {
-        let data = this.getTypeData(this.state.type);
-        var newData = []
+    searchResultsFound = (type) => {
+        let data = this.findPkmnOfChosenType(this.state.type);
+        var results_found_pkmn = []
         if (data) {
             for (let i = 0; i < data.length; i++) {
-                newData.push(
+                results_found_pkmn.push(
                     <div className='overall'>
                         <div className='pkmnContainer'>
                             <Link className = "galleryPkmn" to = {"/detail/" + String(data[i].index)}>
@@ -92,9 +88,7 @@ class Gallery extends React.Component {
                 )
             }
             return (
-                <div className='pkmnContains'>
-                    {newData}
-                </div>
+                <div className='pkmnContains'> {results_found_pkmn} </div>
             )
         }
 
@@ -108,40 +102,40 @@ class Gallery extends React.Component {
                     Choose an option from the types listed below to view the Pokemon!
                 </div>
                 <div className = "buttonList">
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("All")}}>All</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("All")}}>All</button>
 
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("bug")}}>Bug</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("bug")}}>Bug</button>
 
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("dark")}}>Dark</button>
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("dragon")}}>Dragon</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("dark")}}>Dark</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("dragon")}}>Dragon</button>
 
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("electric")}}>Electric</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("electric")}}>Electric</button>
 
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("fairy")}}>Fairy</button>
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("fighting")}}>Fighting</button>
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("fire")}}>Fire</button>
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("flying")}}>Flying</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("fairy")}}>Fairy</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("fighting")}}>Fighting</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("fire")}}>Fire</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("flying")}}>Flying</button>
 
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("ghost")}}>Ghost</button>
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("grass")}}>Grass</button>
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("ground")}}>Ground</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("ghost")}}>Ghost</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("grass")}}>Grass</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("ground")}}>Ground</button>
 
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("ice")}}>Ice</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("ice")}}>Ice</button>
 
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("normal")}}>Normal</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("normal")}}>Normal</button>
 
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("poison")}}>Poison</button>
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("psychic")}}>Psychic</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("poison")}}>Poison</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("psychic")}}>Psychic</button>
 
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("rock")}}>Rock</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("rock")}}>Rock</button>
                     
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("steel")}}>Steel</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("steel")}}>Steel</button>
 
-                    <button className = "PkmnTypeButton" onClick = {()=>{this.handleTypeClicker("water")}}>Water</button>
+                    <button className = "PkmnTypeButton" onClick = {()=>{this.setChosenPkmnType("water")}}>Water</button>
 
 
                 </div>
-                {this.displayView(this.state.type)}
+                {this.searchResultsFound(this.state.type)}
             </div>
         );
     }
