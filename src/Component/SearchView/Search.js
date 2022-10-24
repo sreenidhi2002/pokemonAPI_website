@@ -56,7 +56,6 @@ import { v4 } from 'uuid'
         if (this.state.data) {
             let pokemon_arr = JSON.parse(JSON.stringify(this.state.data))
             if (this.state.sort === "Index") {
-                let results_found = []
                 if (this.state.search.length === 0) {
                     return (<div className='suggestion' key={v4()}>Enter an input in the search bar to see results!</div>)
                 }

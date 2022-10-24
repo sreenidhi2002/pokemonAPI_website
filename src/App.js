@@ -23,7 +23,7 @@ class App extends Component {
       // Use of HashRouter and process.env.PUBLIC_URL as per instructions from TAs in Piazza Posts
       <HashRouter basename={process.env.PUBLIC_URL}>
         <div className='navtop'>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" className="picture_main"></img>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" className="picture_main" alt='Pokedex logo'></img>
         <div className='navtopHeading'>Pokedex Entries</div>
         </div>
           <div className='NavButton'>

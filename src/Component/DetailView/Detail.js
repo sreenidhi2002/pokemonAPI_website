@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios'
 import {useParams} from 'react-router-dom';
 import {useState} from 'react';
@@ -45,7 +45,6 @@ function DetailTest() {
       last_pkmn = detail_view_path + String(858)
     }
   
-    let det_data = [];
     const [data_a, setData] = useState([]);
     const [data_types, setTypeData] = useState();
     const [data_hp, setHP] = useState();
