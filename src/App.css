@@ -98,6 +98,7 @@ h1 {
 
 .body{
   background-color: #4abdac;
+  height: 100vh;
 }
 
 .suggestion{
@@ -109,8 +110,8 @@ h1 {
   padding: 15px 20px;
   padding-right: 5px;
   height:100%;
+  padding-bottom: 500px;
 }
-
 
 .GalleryTitle{
   color: white;
